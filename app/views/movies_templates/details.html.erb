@@ -1,0 +1,64 @@
+<h1>Movie #<%= @the_id %> details</h1>
+
+<a href="/directors" class="btn btn-block btn-outline-secondary">
+  Go back
+</a>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @filmography.title %>
+  </dd>
+
+  <dt>
+    Year
+  </dt>
+  <dd>
+    <%= @filmography.year %>
+  </dd>
+
+  <dt>
+    Duration
+  </dt>
+  <dd>
+   <%= @filmography.duration %>
+  </dd>
+
+ <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @filmography.description %>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <%= @filmography.image %>
+  </dd>
+
+    <dt>
+    Director
+  </dt>
+  <dd>
+    <%= Director.where({ :id => @filmography.director_id}).at(0).name %>
+  </dd>
+
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+   <%= time_ago_in_words(@filmography.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@filmography.updated_at) %> ago
+  </dd>
+</dl>
